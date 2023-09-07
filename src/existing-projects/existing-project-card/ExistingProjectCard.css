@@ -1,0 +1,38 @@
+ul, li {
+    display:inline
+}
+
+ul {
+    padding-left: 6px;
+}
+
+li {
+    padding-right: 6px;
+}
+
+.lmig-Modal-container {
+    grid-template-columns: repeat(1, 1fr) max-content !important;
+}
+
+.project-card {
+    border: 0px solid;
+    border-bottom-width: 1px;
+}
+
+.edit-col {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    background-color: rgb(246, 248, 250);
+}
+
+.loading-spinner {
+    margin: 0 auto;
+}
+
+.loading-container {
+    padding-top: 10px;
+}
+
+.loading-text {
+    text-align: center;
+}
