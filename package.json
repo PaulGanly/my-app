@@ -9,6 +9,7 @@
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "@types/recharts": "^1.8.24",
     "octokit": "^3.1.0",
     "primereact": "^9.6.1",
     "prism-react-renderer": "^2.0.6",
@@ -17,6 +18,7 @@
     "react-prism": "^4.3.2",
     "react-scripts": "^5.0.1",
     "react-step-wizard": "^5.3.11",
+    "recharts": "^2.8.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

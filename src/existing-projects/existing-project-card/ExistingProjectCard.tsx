@@ -1,31 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import {RepoDetails} from "../../models/Repo";
-import {octokit} from "../../utils/octokit";
-import {
-    Accordion,
-    AccordionTab,
-    Button, Checkbox, CheckboxGroup,
-    FieldGroup,
-    Form,
-    GridCol,
-    GridRow,
-    Heading,
-    IconButton,
-    IconEdit,
-    IconFolder,
-    LoadingSpinner,
-    Modal,
-    ModalBody,
-    ModalFooter,
-    Select,
-    SelectOption,
-    Toggle
-} from "@lmig/lmds-react";
+import {Button, GridCol, GridRow} from "@lmig/lmds-react";
 
 import './ExistingProjectCard.css';
+import {Link} from "@tanstack/react-router";
 
 export function ExistingProjectCard(props: any) {
-    const [isOpen, setIsOpen] = React.useState(false);
     const repo = props.repo as RepoDetails;
 
     function getRandomDate(from: string, to: string) {
@@ -58,9 +38,17 @@ export function ExistingProjectCard(props: any) {
                             </GridRow>
                         </GridCol>
                         <GridCol base={3}>
-                            <Button onClick={() => setIsOpen(!isOpen)}>
-                                Edit Tests
-                            </Button>
+                            <GridRow gutterSize="fixed-16" gutters>
+                                <GridCol base={12} md={6}>
+                                    <Button>
+                                        <Link to='/project/$projectName'
+                                              params={{
+                                                  projectName: repo.name,
+                                              }}><span>Show Details</span></Link>
+                                    </Button>
+                                </GridCol>
+                            </GridRow>
+
                         </GridCol>
                     </GridRow>
 

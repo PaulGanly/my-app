@@ -11,6 +11,7 @@ import {Dashboard} from "./dashboard/Dashboard";
 import {ExistingProjects} from "./existing-projects/ExistingProjects";
 import {ImportProject} from "./import-project/ImportProject";
 import {Tutorial} from "./tutorial/Tutorial";
+import {ExistingProject} from "./existing-project/ExistingProject";
 
 const rootRoute = new RootRoute({
     component: Root,
@@ -32,7 +33,7 @@ function Root() {
     return (
         <>
 
-            <Header className={'fixed'}>
+            <Header className={'fixed full-width'}>
                 <GridRow>
                     <GridCol base={3}><LogoLiberty/></GridCol>
                     <GridCol base={9} className={"padd-6"}>
@@ -49,7 +50,7 @@ function Root() {
                 </div>
                 <div className={"main"}>
                     <GridRow gutters>
-                        <GridCol base={9}>
+                        <GridCol>
                             <Outlet/>
                         </GridCol>
                     </GridRow>
@@ -62,6 +63,10 @@ function Root() {
         </>
 
     )
+}
+
+export async function fetchProjectByName(name: string) {
+    return undefined
 }
 
 // Create an index route
@@ -88,8 +93,18 @@ const importProjectRoute = new Route({
     path: '/add-project',
     component: ImportProject,
 })
+
+const projectRoute = new Route({
+    getParentRoute: () => rootRoute,
+    path: '/project/$projectName',
+    parseParams: (params) => ({
+        projectName: params.projectName,
+    }),
+    loader: async ({ params: { projectName } }) => fetchProjectByName(projectName),
+    component: ExistingProject,
+})
 // Create the route tree using your routes
-const routeTree = rootRoute.addChildren([indexRoute, tutorialRoute, projectsRoute, importProjectRoute])
+const routeTree = rootRoute.addChildren([indexRoute, tutorialRoute, projectsRoute, importProjectRoute, projectRoute])
 
 // Create the router using your route tree
 const router = new Router({ routeTree })

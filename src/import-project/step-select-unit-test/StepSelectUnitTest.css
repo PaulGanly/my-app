@@ -1,0 +1,30 @@
+.centreItemsVert {
+    display: flex;
+    align-items: center;
+}
+
+.imageSize {
+    width: 125px;
+}
+
+.integrationImageSize {
+    width: 90px;
+    margin-left: 24px !important;
+}
+
+.selectCard {
+    padding: 12px !important;
+    margin-bottom: 12px !important;
+}
+
+.selectCard > div > div > div {
+    margin-bottom: 0px !important;
+}
+
+.cardRow {
+    height: 205px !important;
+}
+
+.marginBottom {
+    margin-bottom: 12px !important;
+}

@@ -3,6 +3,11 @@ import useGithubGetUser from "../hooks/getUser";
 import useGithubGetRepo from "../hooks/getRepos";
 import {FieldGroup, Form, SearchInput} from "@lmig/lmds-react";
 import {ExistingProjectCard} from "./existing-project-card/ExistingProjectCard";
+import {RootRoute} from "@tanstack/react-router";
+
+const projectsRootRoute = new RootRoute({
+    component: ExistingProjects,
+})
 
 export function ExistingProjects() {
     const {user} = useGithubGetUser()
